@@ -14,7 +14,7 @@ BEGIN
     --Convert the GeoJSON to a geometry type for insertion. 
     _the_geom := ST_SetSRID(ST_GeomFromGeoJSON(_geojson),4326); 
 
-    EXECUTE ' INSERT INTO transpocamp (the_geom, description, name)
+    EXECUTE ' INSERT INTO postgis_day_2015 (the_geom, description, name)
             VALUES ($1, $2, $3)
             ' USING _the_geom, _description, _name;
             
